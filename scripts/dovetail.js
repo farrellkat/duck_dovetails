@@ -63,6 +63,8 @@ for (button of allButtons) {
                 displayShoppingCart()
             } else {
                 foundProduct.quantity++
+                foundProduct.price += foundProduct.price
+                displayShoppingCart()
             }
 
         }

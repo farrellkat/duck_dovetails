@@ -1,5 +1,4 @@
 const shoppingCart = []
-let quantity = 0
 
 const displayShoppingCart = () => {
     const cartEl = document.querySelector("#cartItems")
@@ -13,7 +12,7 @@ const displayShoppingCart = () => {
         `
         <section class="shoppingCart__item">
         <div>${product.name}</div>
-        <div class="quantityDiv">${quantity}</div>
+        <div class="quantityDiv">${product.quantity}</div>
         <div>${product.price.toLocaleString("en-US", {
             style: "currency",
             currency: "USD"
