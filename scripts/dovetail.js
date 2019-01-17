@@ -14,9 +14,9 @@ const createProductHTML = product => `
 
       <footer class="product__footer">
         Price: ${product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD"
-        })}
+    style: "currency",
+    currency: "USD"
+})}
 
         <button id="${product.id}" class="product__purchaseButton">Purchase</button>
       </footer>
