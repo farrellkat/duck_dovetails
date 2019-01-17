@@ -41,8 +41,13 @@ const displayShoppingCart = () => {
             "click",
             (event) => {
                 const indexToRemove = parseInt(event.target.id)
+                if (product.quantity === 1) {
                 shoppingCart.splice(indexToRemove, 1)
                 displayShoppingCart()
+            } else {
+                product.quantity--
+                displayShoppingCart()
+            }
             }
         )
 
