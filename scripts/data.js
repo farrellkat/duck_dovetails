@@ -3,7 +3,7 @@ const products = [
       "name": "Med qvotrax",
       "price": 882.48,
       "id": 302,
-      "description": "if then minus tiny what pretty been season letter sure race felt product often"
+      "description": "if then minus tiny what pretty been season letter sure race felt product often",
     },
     {
       "name": "Tech-key",

@@ -51,12 +51,18 @@ for (button of allButtons) {
             const foundProduct = products.find((product) => {
                 return parseInt(event.target.id) === product.id
             })
+            const foundArrayProduct = shoppingCart.find((product) => {
+                return parseInt(event.target.id) === product.id
+            })
 
             // Only if something was found, add the object to the
             // shopping cart array
-            if (foundProduct !== null) {
+            if (foundProduct !== null && foundProduct !== foundArrayProduct) {
+                foundProduct.quantity = 1
                 shoppingCart.push(foundProduct)
                 displayShoppingCart()
+            } else {
+                foundProduct.quantity++
             }
 
         }
