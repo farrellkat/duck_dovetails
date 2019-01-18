@@ -12,7 +12,7 @@ const displayShoppingCart = () => {
         `
         <section class="shoppingCart__item">
         <div>${product.name}</div>
-        <div class="quantityDiv">${product.quantity}</div>
+        <div>${product.quantity}</div>
         <div>${product.price.toLocaleString("en-US", {
             style: "currency",
             currency: "USD"
@@ -22,7 +22,7 @@ const displayShoppingCart = () => {
         </section>
         `
 
-        grandTotal += product.price
+        grandTotal += product.price * product.quantity
     })
 
     cartEl.innerHTML += `
@@ -41,13 +41,17 @@ const displayShoppingCart = () => {
             "click",
             (event) => {
                 const indexToRemove = parseInt(event.target.id)
-                if (product.quantity === 1) {
-                shoppingCart.splice(indexToRemove, 1)
-                displayShoppingCart()
-            } else {
-                product.quantity--
-                displayShoppingCart()
-            }
+                if (product.quantity > 1) {
+                    product.quantity--
+                    grandTotal -= product.price
+                    displayShoppingCart()
+                    console.log(shoppingCart)
+                } else {
+                    delete product.quantity
+                    shoppingCart.splice(indexToRemove, 1)
+
+                    displayShoppingCart()
+                }
             }
         )
 
